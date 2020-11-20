@@ -20,3 +20,8 @@ class HashTable:
     def get_position(self, value):
         return hash(value) // self.arr_size
 
+def test_1():
+    hash_table = HashTable()
+    hash_table.add(5)
+    result = hash_table.find(5)
+    assert result == 5
