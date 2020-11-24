@@ -1,6 +1,7 @@
-from .node import Node
+from node import Node
+from super_list import SuperList
 
-class SinglyLinkedList:
+class SinglyLinkedList(SuperList):
     def __init__(self, data):
         self.head = Node(data)
         self.tail = self.head
@@ -26,20 +27,6 @@ class SinglyLinkedList:
 
         if next.next == self.head:
             self.head = next.next.next
-
-
-    def __eq__(self, other):
-        self_head = self.head
-        other_head = other.head
-        while self_head != None and other_head != None:
-            if self_head.data != other_head.data:
-                return False
-            self_head = self_head.next
-            other_head = other_head.next
-        if self_head == None and other_head == None:
-            return True
-        return False
-
 
 def test_delete_node():
     list1 = SinglyLinkedList(0)
