@@ -1,4 +1,4 @@
-from .singly_linked_list import SinglyLinkedList
+from structure.singly_linked_list import SinglyLinkedList
 
 def remove_duplicates(list):
     values_set = set()

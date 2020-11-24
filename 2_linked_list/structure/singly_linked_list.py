@@ -3,26 +3,26 @@ from .node import Node
 class SinglyLinkedList:
     def __init__(self, data):
         self.head = Node(data)
+        self.tail = Node(data)
 
     def add_node(self, data):
-        if self.head == None:
-            self.head = Node(data)
-            return
-
         next = self.head
-        while next.next != None:
+        while next.next:
             next = next.next
         next.next = Node(data)
 
     def delete_node(self, data):
         next = self.head
-        if next == None or next.next == None:
+        if next.data == data:
+            self.tail = self.tail.next
             return
 
-        while next.next.data != data:
+        while next and next.next and next.next.data != data:
             next = next.next
+        
+        if next.next:
+            next.next = next.next.next
 
-        next.next = next.next.next
 
     def __eq__(self, other):
         self_head = self.head
