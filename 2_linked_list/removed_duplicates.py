@@ -2,7 +2,7 @@ from structure.singly_linked_list import SinglyLinkedList
 
 def remove_duplicates(list):
     values_set = set()
-    next = list.head
+    next = list.tail
     while next != None:
         if next.data not in values_set:
             values_set.add(next.data)
@@ -28,4 +28,5 @@ def test_remove_duplicates():
     result.add_node(1)
     result.add_node(2)
 
-    assert remove_duplicates(list) == result
+    new_list = remove_duplicates(list)
+    assert new_list.__eq__(result)

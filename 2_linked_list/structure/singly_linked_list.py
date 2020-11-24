@@ -3,13 +3,14 @@ from .node import Node
 class SinglyLinkedList:
     def __init__(self, data):
         self.head = Node(data)
-        self.tail = Node(data)
+        self.tail = self.head
 
     def add_node(self, data):
         next = self.head
         while next.next:
             next = next.next
         next.next = Node(data)
+        self.head = next.next
 
     def delete_node(self, data):
         next = self.head
@@ -22,6 +23,9 @@ class SinglyLinkedList:
         
         if next.next:
             next.next = next.next.next
+
+        if next.next == self.head:
+            self.head = next.next.next
 
 
     def __eq__(self, other):
