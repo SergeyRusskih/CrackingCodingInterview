@@ -1,12 +1,12 @@
 class SuperList:
     def __eq__(self, other):
-        self_head = self.head
-        other_head = other.head
-        while self_head != None and other_head != None:
-            if self_head.data != other_head.data:
+        self_next = self.tail
+        other_next = other.tail
+        while self_next != None and other_next != None:
+            if self_next.data != other_next.data:
                 return False
-            self_head = self_head.next
-            other_head = other_head.next
-        if self_head == None and other_head == None:
+            self_next = self_next.next
+            other_next = other_next.next
+        if self_next == None and other_next == None:
             return True
         return False
