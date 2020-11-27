@@ -7,14 +7,11 @@ class SinglyLinkedList(SuperList):
         self.tail = self.head
 
     def add_node(self, data):
-        next = self.head
-        while next.next:
-            next = next.next
-        next.next = Node(data)
-        self.head = next.next
+        self.head.next = Node(data)
+        self.head = self.head.next
 
     def delete_node(self, data):
-        next = self.head
+        next = self.tail
         if next.data == data:
             self.tail = self.tail.next
             return
@@ -24,9 +21,6 @@ class SinglyLinkedList(SuperList):
         
         if next.next:
             next.next = next.next.next
-
-        if next.next == self.head:
-            self.head = next.next.next
 
 def test_delete_node():
     list1 = SinglyLinkedList(0)
