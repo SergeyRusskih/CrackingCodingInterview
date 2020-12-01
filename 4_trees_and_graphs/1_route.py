@@ -1,10 +1,14 @@
 from graph import Graph, Node
 
 def route(graph, node, data):
+
+    if node.data == data:
+        return True
+
     for child in node.children:
-        if graph.nodes[child].data == data:
+        if route(graph, graph.nodes[child], data):
             return True
-        return route(graph, graph.nodes[child], data)
+            
     return False
 
 def test_simple():
