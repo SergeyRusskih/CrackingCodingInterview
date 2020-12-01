@@ -12,29 +12,35 @@ def list_of_depths(tree, index):
     while indexes:
         children = []
 
-        node = Node(0)
+        node = None
         for _, i in enumerate(indexes):
             left = get_left(i)
             if left < len(tree):
                 children.append(left)
-                node.next = Node(tree[left])
-                node = node.next
+                if not node:
+                    node = = Node(tree[left-1])
+                else:
+                    node.next = Node(tree[left-1])
                 
 
             right = get_right(i)
             if right < len(tree):
                 children.append(right)
-                node.next = Node(tree[right])
-                node.
+                if not node:
+                    node = Node(tree[right-1])
+                else:
+                    node.next = Node(tree[right-1])
 
-        nodes.append(node)
-        inexes = children
+        nodes.append(node.next)
+        indexes = children
+
+    return nodes
 
 def get_left(index):
-    return index ** 2
+    return index * 2
 
 def get_right(index):
-    return (index ** 2) + 1
+    return (index * 2) + 1
 
 def test_simple():
     arr = [ 1, 
