@@ -19,7 +19,7 @@ def get_left(i):
 def get_right(i):
     return (i * 2) + 1
 
-def test_validate_true():
+def test_validate_should_return_true():
     bst = [
         6,
         4, 8,
@@ -28,7 +28,7 @@ def test_validate_true():
 
     assert validate_bst(bst, 1)
 
-def test_validate_false():
+def test_validate_should_return_false():
     bst = [
         6,
         7, 8,
